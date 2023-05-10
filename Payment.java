@@ -4,9 +4,6 @@ public class Payment {
     public void Checkout(){
 
     }
-    public void PayEwallet(){
-
-    }
     public void payCash(){
         
     }

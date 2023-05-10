@@ -8,7 +8,6 @@ public class OTP {
         Random rand = new Random(); // Generate random number
         System.out.println("We send to you verification code on your Email");
         myOTP=rand.nextInt(100000);
-        System.out.println("code is: "+myOTP);
     }
     public int getOTP(){
         return myOTP;

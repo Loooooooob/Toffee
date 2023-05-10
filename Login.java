@@ -1,31 +1,48 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Login {
     private String username ;
     private String password ;
+    private PersonDB DB=new PersonDB();
     // - code : VerifyEmail
     // - Db:DataBase
-    public setting modify;
     public void InputData(){
-        int choice;
+        while(true){
+            setUsername();
+            SetPassword();
+            if(checklogin()){
+                System.err.println("Welcome to ToffeApp Miss,Mrs "+getUsername());
+                System.out.println();
+                break;
+            }else{
+                System.err.println("Wrong Email or Password Please try agin");
+            }
+        }
+        System.out.println("Login successfully");
+        System.out.println();
+    }
+    public void setUsername(){
         Scanner in = new Scanner(System.in);
         System.out.print("Enter Your username: ");
         username= in.nextLine();
-        System.out.println();
+        System.out.println(); 
+    }
+    public void SetPassword (){
+        Scanner in = new Scanner(System.in);
+        int choice;
         while (true) {
             System.out.println("Please choose one option ");
             System.out.println("1 .Enter Password ");
             System.out.println("2 .ForgetPassword ");
-            System.out.println("Enter your choice:");
+            System.out.print("Enter your choice:");
             choice =in.nextInt();
             password= in.nextLine();
             if(choice==1){
-                System.out.println("Enter Your Password: ");
+                System.out.print("Enter Your Password: ");
                 password=in.nextLine();
-                if(checklogin()){
+                if(DB.checkUser(username, password)){
                     break;
                 }else{
                     System.out.println("Please Try Again");
@@ -34,13 +51,6 @@ public class Login {
                 VerifyEmail();
             }
         }
-        System.out.println("Login successfully");
-    }
-    public void setUsername(String name){
-        username=name; 
-    }
-    public void SetPassword (String pass){
-        password=pass;
     }
     public String getUsername(){
         return username; 
@@ -71,17 +81,15 @@ public class Login {
           return Find;
     }
     public void VerifyEmail(){
+        OTP code = new OTP();
+        Scanner in = new Scanner(System.in);
         while(true){
-            int code;
-            Random rand = new Random();
-            int RandomCode;       // Generate random number
-            Scanner in = new Scanner(System.in);
-            System.out.println("We send to you verification code on your Email");
-            RandomCode=rand.nextInt(100000);
-            System.out.println("code is: "+RandomCode);
-            System.out.println("Enter Verification Code: ");
-            code=in.nextInt();
-            if(code==RandomCode){
+            code.setOTP();
+            int InCode;
+            System.out.println("code is: "+code.getOTP());
+            System.out.print("Enter Verification Code: ");
+            InCode=in.nextInt();
+            if(InCode==code.getOTP()){
                 System.out.println("Correct code");
                 System.out.println();
                 break;
