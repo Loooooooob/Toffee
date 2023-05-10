@@ -4,16 +4,16 @@ public class cart {
     private int quantity; 
     private double total ;
     private item myItem;
-    private void placeOrder(){
+    // private void placeOrder(){
         // myItem.available()
-    } 
+    // } 
     public void dropItem(String NameOfProduct){
         ItemName.remove(NameOfProduct);
     }
-    public void addToMyCart(){
-        ItemName.put("lolipop", 5);
-        ItemName.put("chocolate", 7);
-        ItemName.put("Toffee", 9);
+    public void addToMyCart(String NameOfProduct,int HowMany){
+        ItemName.put(NameOfProduct,HowMany);
+        // ItemName.put("chocolate", 7);
+        // ItemName.put("Toffee", 9);
     }
     public void viewItems() {
         System.out.printf("%-15S %s\n", "Product Name", "Quantity");
