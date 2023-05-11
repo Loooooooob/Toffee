@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class Catalog {
     private item myitem;
     public void ViewCatalog(){
