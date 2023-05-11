@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class ToffeMain {
+
     public static void main(String argv[]){
         System.out.println("Welcome To Toffee Application");
         boolean logged=false;

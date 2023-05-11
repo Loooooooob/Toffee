@@ -1,6 +1,9 @@
 import java.util.Scanner;
 
+<<<<<<< HEAD
 import javax.lang.model.util.ElementScanner14;
+=======
+>>>>>>> fb4cd1a02175ded104cb2508e4cc50bda964d56d
 
 public class Catalog {
     private cart myCart;
