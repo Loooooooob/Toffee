@@ -1,6 +1,9 @@
 import java.util.Scanner;
 
+import javax.lang.model.util.ElementScanner14;
+
 public class Catalog {
+    private cart myCart;
     private item myitem;
     public void ViewCatalog(){
         int choice;
@@ -18,7 +21,7 @@ public class Catalog {
             System.out.println("Chocolate category");
             System.out.printf("%-15S %s\n", "Product Name", "Price","Availabilty");
             System.out.printf("%-15S %s\n", "Galaxy"  ,myitem.getPrice("Galaxy"),myitem.available("Galaxy"));
-            System.out.printf("%-15S %s\n", "Cadbury" ,myitem.getPrice("Galaxy"),myitem.available("Cadbury"));
+            System.out.printf("%-15S %s\n", "Cadbury" ,myitem.getPrice("Cadbury"),myitem.available("Cadbury"));
             System.out.printf("%-15S %s\n", "kitkat"  ,myitem.getPrice("kitkat"),myitem.available("kitkat"));
             System.out.printf("%-15S %s\n", "nutella" ,myitem.getPrice("nutella"),myitem.available("nutella"));
         }else if(choice==2){
@@ -27,12 +30,15 @@ public class Catalog {
             System.out.printf("%-15S %s\n", "toffee"   ,myitem.getPrice("toffee"),myitem.available("toffee"));
             System.out.printf("%-15S %s\n", "lollipop" ,myitem.getPrice("lollipop"),myitem.available("lollipop"));
             System.out.printf("%-15S %s\n", "gum"      ,myitem.getPrice("gum"),myitem.available("gum"));
-        }else{
+        }else if(choice==3){
             System.out.println("Candy category");
             System.out.printf("%-15S %s\n", "Product Name", "Price");
             System.out.printf("%-15S %s\n", "gateau",myitem.getPrice("gateau"),myitem.available("gateau"));
             System.out.printf("%-15S %s\n", "torta" ,myitem.getPrice("torta"),myitem.available("torta"));
             System.out.printf("%-15S %s\n", "donuts",myitem.getPrice("donuts"),myitem.available("donuts"));
-        }        
+        }  
+        System.out.println("Do you want to buy product?");
+        
+        System.out.println("Enter The Name of product:");     
     }
 }

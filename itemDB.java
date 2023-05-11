@@ -9,8 +9,7 @@ import java.util.Scanner;
 
 public class itemDB {
     private String DataSource="Items.txt";
-    private Map<String, Map.Entry<Integer, Integer>> items = new HashMap<>(); /* name ,(price,quantiy) */
-    
+    private Map<String, Map.Entry<Integer, Integer>> items = new HashMap<>(); /* name ,(price,quantiy) */    
     public void loadItem(){
         try {    
             File itemsfFile = new File(DataSource);

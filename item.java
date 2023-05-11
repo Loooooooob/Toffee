@@ -3,10 +3,10 @@ import javax.swing.text.html.HTMLDocument.HTMLReader.PreAction;
 public class item {
     private String name ;
     private int price ;
-    private int quantityUnits;
-    private double quantityKilo;
     private boolean availabilty;
     private itemDB Product;
+    // private int quantityUnits;
+    // private double quantityKilo;
     // private ItemDB dbItem ;
     // public void setName(String Name){
     //     name=Name;
@@ -26,12 +26,12 @@ public class item {
     // public void setquantityKilo(Double Quantity){
     //     quantityKilo=Quantity;
     // } 
-    public int getQuantityUnits(int Quantity){
-        return quantityUnits;
-    } 
-    public double getquantityKilo(Double Quantity){
-        return quantityKilo;
-    } 
+    // public int getQuantityUnits(int Quantity){
+    //     return quantityUnits;
+    // } 
+    // public double getquantityKilo(Double Quantity){
+    //     return quantityKilo;
+    // } 
     public boolean available(String name){
         return availabilty;
     }
