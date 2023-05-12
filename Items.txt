@@ -1,2 +1,10 @@
-choclata 50 47
-lolipop 5 20
+galaxy 57.0 21
+torta 57.0 21
+toffee 57.0 21
+donuts 57.0 0
+cadbury 57.0 9
+lollipop 57.0 6
+kitkat 57.0 0
+gum 57.0 20
+nutella 57.0 11
+gateau 57.0 0

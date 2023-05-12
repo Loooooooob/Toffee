@@ -1,22 +1,17 @@
 import java.util.Scanner;
 
 public class Payment {
-    private int shippingFees=50; 
-    private cart myCart;
-    public void Checkout(){
-        System.out.println("Total: "+myCart.getTotal()+" EGP");
-        System.out.println("shippingFees: "+shippingFees+" EGP");
-        System.out.println("Subtotal: "+shippingFees+myCart.getTotal()+" EGP");
-    }
-    public Boolean payCash(){
+    private double shippingFees=50; 
+    private cart myCart=new cart();
+    public void Checkout(double Total){
+        String Address;
         Scanner in = new Scanner(System.in);
-        double pay;
-        System.out.println("Please enter your cash: ");
-        pay=in.nextDouble();
-        if(pay>=shippingFees+myCart.getTotal()){
-            System.out.println("The rest of the bill is "+(pay-(shippingFees+myCart.getTotal()))+" EGP");
-            return true;
-        }
-        return false;
+        System.out.println("Total: "+Total+" EGP");
+        System.out.println("shippingFees: "+shippingFees+" EGP");
+        System.out.println("Subtotal: "+shippingFees+Total+" EGP");
+        System.out.print("Please enter The Address you want to ship your order to it:");
+        Address=in.nextLine();
+        System.out.println("Your order will be shipped in 1-2 days");
+        System.out.println("===========================================");
     }
 }

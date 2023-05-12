@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class itemDB {
     private String DataSource="Items.txt";
-    private Map<String, Map.Entry<Integer, Integer>> items = new HashMap<>(); /* name ,(price,quantiy) */    
+    public Map<String, Map.Entry<Double, Integer>> items = new HashMap<>(); /* name ,(price,quantiy) */    
     public void loadItem(){
         try {    
             File itemsfFile = new File(DataSource);
@@ -34,20 +34,13 @@ public class itemDB {
                             quantiy+=data.charAt(i);;
                         }
                     }
-                    items.put(NameOFItem,new AbstractMap.SimpleEntry<>(Integer.parseInt(Price),Integer.parseInt(quantiy)));
+                    items.put(NameOFItem,new AbstractMap.SimpleEntry<>(Double.parseDouble(Price),Integer.parseInt(quantiy)));
                 }
             }
             myline.close();
-            for (Map.Entry<String, Map.Entry<Integer, Integer>> entry : items.entrySet()) {
-                String key = entry.getKey();
-                int value1 = entry.getValue().getKey();
-                int value2 = entry.getValue().getValue();
-                System.out.println(key + " -> (" + value1 + ", " + value2 + ")");
-            }
         } catch (Exception e) {
             System.out.println("Couldn't open the File");
         }
-        saveItem();
     }
     public void saveItem(){
         try {
@@ -58,18 +51,52 @@ public class itemDB {
             
             itemsfFile=new FileWriter(DataSource,true);
             
-            for (Map.Entry<String, Map.Entry<Integer, Integer>> entry : items.entrySet()) {
+            for (Map.Entry<String, Map.Entry<Double, Integer>> entry : items.entrySet()) {
                 String NameOfItem = entry.getKey();
-                int Price = entry.getValue().getKey();
+                double Price = entry.getValue().getKey();
                 int Quantity = entry.getValue().getValue();
                 itemsfFile.write(NameOfItem+" "+Price+" "+Quantity+"\n");
             }
            itemsfFile.close();
         } 
         catch (IOException e) {
-            System.out.println("Something went wrong.");
+            System.out.println("Couldn't Save the File.");
         }
     }
-    // +savecategory(mycatg:categories):void
-    // +removecategroy(name:string):void
+    public double getPrice(String NameOfProduct){
+        Map.Entry<Double, Integer> entry = items.get(NameOfProduct);
+        Double value = entry.getKey();
+        return value;
+    }
+    public int getQuntity(String NameOfProduct){
+        Map.Entry<Double, Integer> entry = items.get(NameOfProduct);
+        int value = entry.getValue();
+        return value;
+    }
+    public String available(String name){
+        if(getQuntity(name)>0){
+            return "Available";
+        }
+        return "Not Available";
+    }
+    public boolean isExist(String name){
+        if(items.containsKey(name)){
+            return true;
+        }
+        return false;
+    }
+    public void increamntQunatity(String NameOfProduct,int quantity){
+        Map.Entry<Double, Integer> entry = items.get(NameOfProduct);
+        int currentValue = entry.getValue();
+        double Price = entry.getKey();
+        int updatedValueQuantity = currentValue + quantity;
+        items.put(NameOfProduct,new AbstractMap.SimpleEntry<>(Price,updatedValueQuantity));
+    }
+    public void decreamntQunatity(String NameOfProduct,int quantity){
+        Map.Entry<Double, Integer> entry = items.get(NameOfProduct);
+        int currentValue = entry.getValue();
+        double Price = entry.getKey();
+        int updatedValueQuantity = currentValue - quantity;
+        items.put(NameOfProduct,new AbstractMap.SimpleEntry<>(Price,updatedValueQuantity));
+    }
 }

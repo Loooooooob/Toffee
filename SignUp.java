@@ -98,11 +98,11 @@ public class SignUp {
     public void VerifyEmail(){
         Scanner in = new Scanner(System.in);
         while(true){
-            code.setOTP();
+            code.sendOTP(email, username);
             int InCode;
-            System.out.println("code is: "+code.getOTP());
             System.out.print("Enter Verification Code: ");
             InCode=in.nextInt();
+            in.nextLine();
             if(InCode==code.getOTP()){
                 System.out.println("Correct code");
                 System.out.println();

@@ -1,11 +1,8 @@
 import java.util.Scanner;
 
-import javax.lang.model.util.ElementScanner14;
-
 
 public class Catalog {
-    private cart myCart;
-    private item myitem;
+    private item myitem=new item();
     public void ViewCatalog(){
         int choice;
         Scanner in = new Scanner(System.in);
@@ -13,33 +10,34 @@ public class Catalog {
         System.out.println("1-Chocolate category");
         System.out.println("2-Toffee category");
         System.out.println("3-Candy category");
-        System.out.println("Enter your choice: ");
+        System.out.print("Enter your choice: ");
         choice=in.nextInt();
+        System.out.println("=================================");
         CategoryItems(choice);
     }
     public void CategoryItems(int choice){
         if(choice==1){
             System.out.println("Chocolate category");
-            System.out.printf("%-15S %s\n", "Product Name", "Price","Availabilty");
-            System.out.printf("%-15S %s\n", "Galaxy"  ,myitem.getPrice("Galaxy"),myitem.available("Galaxy"));
-            System.out.printf("%-15S %s\n", "Cadbury" ,myitem.getPrice("Cadbury"),myitem.available("Cadbury"));
-            System.out.printf("%-15S %s\n", "kitkat"  ,myitem.getPrice("kitkat"),myitem.available("kitkat"));
-            System.out.printf("%-15S %s\n", "nutella" ,myitem.getPrice("nutella"),myitem.available("nutella"));
+            System.out.printf("%-15s $%s %s\n", "Product Name", "Price","Availabilty");
+            System.out.printf("%-15s $%.2f %s\n", "galaxy", myitem.getprice("galaxy"), myitem.available("galaxy"));
+            System.out.printf("%-15s $%.2f %s\n", "cadbury" ,myitem.getprice("cadbury"),myitem.available("cadbury"));
+            System.out.printf("%-15s $%.2f %s\n", "kitkat"  ,myitem.getprice("kitkat"),myitem.available("kitkat"));
+            System.out.printf("%-15s $%.2f %s\n", "nutella" ,myitem.getprice("nutella"),myitem.available("nutella"));
+            System.out.println("===============================");
         }else if(choice==2){
             System.out.println("Toffee category");
-            System.out.printf("%-15S %s\n", "Product Name", "Price");
-            System.out.printf("%-15S %s\n", "toffee"   ,myitem.getPrice("toffee"),myitem.available("toffee"));
-            System.out.printf("%-15S %s\n", "lollipop" ,myitem.getPrice("lollipop"),myitem.available("lollipop"));
-            System.out.printf("%-15S %s\n", "gum"      ,myitem.getPrice("gum"),myitem.available("gum"));
+            System.out.printf("%-15s $%s %s\n", "Product Name", "Price","Availabilty");
+            System.out.printf("%-15s $%.2f %s\n", "toffee"   ,myitem.getprice("toffee"),myitem.available("toffee"));
+            System.out.printf("%-15s $%.2f %s\n", "lollipop" ,myitem.getprice("lollipop"),myitem.available("lollipop"));
+            System.out.printf("%-15s $%.2f %s\n", "gum"      ,myitem.getprice("gum"),myitem.available("gum"));
+            System.out.println("===============================");
         }else if(choice==3){
             System.out.println("Candy category");
-            System.out.printf("%-15S %s\n", "Product Name", "Price");
-            System.out.printf("%-15S %s\n", "gateau",myitem.getPrice("gateau"),myitem.available("gateau"));
-            System.out.printf("%-15S %s\n", "torta" ,myitem.getPrice("torta"),myitem.available("torta"));
-            System.out.printf("%-15S %s\n", "donuts",myitem.getPrice("donuts"),myitem.available("donuts"));
-        }  
-        System.out.println("Do you want to buy product?");
-        
-        System.out.println("Enter The Name of product:");     
+            System.out.printf("%-15s $%S %s\n", "Product Name", "Price","Availabilty");
+            System.out.printf("%-15s $%.2f %s\n", "gateau",myitem.getprice("gateau"),myitem.available("gateau"));
+            System.out.printf("%-15s $%.2f %s\n", "torta" ,myitem.getprice("torta"),myitem.available("torta"));
+            System.out.printf("%-15s $%.2f %s\n", "donuts",myitem.getprice("donuts"),myitem.available("donuts"));
+            System.out.println("===============================");
+        }     
     }
 }
