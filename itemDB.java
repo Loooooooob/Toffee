@@ -18,7 +18,7 @@ public class itemDB {
     /**
      * A map that stores the items in the database, where the key is the name of the item and the value is a pair of the item's price and quantity.
      */
-    public Map<String, Map.Entry<Double, Integer>> items = new HashMap<>(); /* name ,(price,quantity) */    
+    private Map<String, Map.Entry<Double, Integer>> items = new HashMap<>(); /* name ,(price,quantity) */    
 
     /**
      * Loads the item data from the file specified by `DataSource` into the `items` map.
