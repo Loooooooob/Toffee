@@ -1,10 +1,28 @@
 import java.util.*;
-
+/**
+ * Represents a shopping cart that can be used to add and remove items, view the contents of the cart, and calculate the total cost.
+ */
 public class cart {
+    /**
+     * A map that stores the names of the items in the cart and their quantities.
+     */
     private Map<String, Integer>ItemName = new HashMap<String, Integer>(); 
+    /**
+     * The total cost of the items in the cart.
+     */
     private double total=0 ;
+    /**
+     * An instance of the `item` class, which is used to get the prices of items.
+     */
     private item myItem=new item();
+     /**
+     * An instance of the `itemDB` class, which is used to load and save item data.
+     */
     private itemDB data=new itemDB();
+     /**
+     * Removes an item from the cart.
+     * @param NameOfProduct the name of the product to remove
+     */
     public void dropItem(String NameOfProduct){
         if (ItemName.containsKey(NameOfProduct)){
             data.loadItem();
@@ -18,6 +36,11 @@ public class cart {
             System.out.println(NameOfProduct+" is not in cart");
         }
     }
+    /**
+     * Adds an item to the cart.
+     * @param NameOfProduct the name of the product to add
+     * @param HowMany the quantity of the product to add
+     */
     public void addToMyCart(String NameOfProduct,int HowMany){
         data.loadItem();
         if(!data.isExist(NameOfProduct)){
@@ -50,6 +73,9 @@ public class cart {
             data.saveItem();
         }
     }
+     /**
+     * Displays the contents of the cart.
+     */
     public void viewItemsInCart() {
         System.out.println("Your Cart");
         System.out.printf("%-15S %s\n", "Product Name", "Quantity");
@@ -58,10 +84,24 @@ public class cart {
         }
         System.out.println("=================================");
     }
+    /**
+     * Gets the total cost of the items in the cart.
+     * @return the total cost
+     */
     public double getTotal(){
         return total;
     }
+    /**
+    * Gets the number of items in the cart.
+    * @return the number of items
+    */
     public int getSize(){
         return ItemName.size();
+    }
+    /**
+     * Clears the list of item names in cart.
+    */
+    public void clear() {
+        ItemName.clear();
     }
 }
