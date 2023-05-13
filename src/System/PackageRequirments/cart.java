@@ -2,7 +2,6 @@ package System.PackageRequirments;
 import System.PackageDatabase.itemDB;
 import System.PackageProduct.item;
 
-
 import java.util.*;
 /**
  * Represents a shopping cart that can be used to add and remove items, view the contents of the cart, and calculate the total cost.
