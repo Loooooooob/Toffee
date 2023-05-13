@@ -7,6 +7,7 @@ import System.PackageHuman.user;
 
 import java.util.regex.Matcher;
 
+
 /**
  * The SignUp class provides methods to get input from the user to create a new account,
  * validate the input, and save the account information to a file.
