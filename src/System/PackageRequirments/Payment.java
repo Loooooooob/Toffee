@@ -2,6 +2,7 @@ package System.PackageRequirments;
 import java.util.Scanner;
 
 
+
 /**
  * A class that represents a payment screen for an online store.
  */
