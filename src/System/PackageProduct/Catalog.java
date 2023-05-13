@@ -1,5 +1,7 @@
 package System.PackageProduct;
 import java.util.Scanner;
+
+
 /**
  * A class that represents a catalog of items, which can be viewed by category.
  */
