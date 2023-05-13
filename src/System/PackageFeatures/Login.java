@@ -68,6 +68,7 @@ public class Login {
         return username; 
     }
 
+    
     /**
      * Sets the password entered by the user.
      * @param pass the password to set
